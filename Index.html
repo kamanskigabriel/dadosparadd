@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rolador de Dados RPG</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #111827, #1f2937);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+    }
+
+    .container {
+      background: #1e293b;
+      padding: 30px;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 600px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+
+    h1 {
+      margin-bottom: 25px;
+      color: #38bdf8;
+    }
+
+    .dados {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 15px;
+    }
+
+    button {
+      padding: 20px;
+      border: none;
+      border-radius: 15px;
+      background: #0ea5e9;
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background: #0284c7;
+      transform: scale(1.05);
+    }
+
+    .resultado {
+      margin-top: 30px;
+      padding: 20px;
+      background: #0f172a;
+      border-radius: 15px;
+    }
+
+    .resultado h2 {
+      margin-bottom: 10px;
+      color: #38bdf8;
+    }
+
+    #valor {
+      font-size: 60px;
+      font-weight: bold;
+      color: #22c55e;
+    }
+
+    #tipoDado {
+      margin-top: 10px;
+      font-size: 18px;
+      color: #cbd5e1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>🎲 Rolador de Dados RPG 🎲</h1>
+
+    <div class="dados">
+      <button onclick="rolarDado(100)">d100</button>
+      <button onclick="rolarDado(20)">d20</button>
+      <button onclick="rolarDado(10)">d10</button>
+      <button onclick="rolarDado(8)">d8</button>
+      <button onclick="rolarDado(6)">d6</button>
+      <button onclick="rolarDado(4)">d4</button>
+    </div>
+
+    <div class="resultado">
+      <h2>Resultado</h2>
+      <div id="valor">-</div>
+      <div id="tipoDado">Escolha um dado</div>
+    </div>
+  </div>
+
+  <script>
+    function rolarDado(lados) {
+      const resultado = Math.floor(Math.random() * lados) + 1;
+
+      document.getElementById("valor").innerText = resultado;
+      document.getElementById("tipoDado").innerText = `Você rolou um d${lados}`;
+    }
+  </script>
+
+</body>
+</html>
